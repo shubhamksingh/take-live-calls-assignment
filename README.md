@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+Sports App (Ex : Playo App)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Our app is a platform for sports enthusiasts to find and join sports events near them. With our app, users can browse a list of available events, view details about each event, and join the events they are interested in. The app allows users to create their own events and set a limit on the number of players, as well as view the list of players who have joined the event. It is simple for users to find and join the events they are interested in. Whether you are looking to join a pickup football game or a local badminton tournament.
 
-## Available Scripts
+Features
+Users need to register or log in with a username and password before creating or joining an event.
+When creating a new sports event the user needs to add the event’s short description, timings, number of players limit and any other requirement for joining the event.
+Users can search or filter through listed events to find a suitable event for them.
+Users can request to join the event if the player limit is not full.
+Event organizers can either accept or reject the user’s request to join the game.
+Accepted users can see who all are joining the game.
+Users can view the list of events they have been accepted to or have requested for.
+If the game starts then all pending requests should expire.
 
-In the project directory, you can run:
+Views
+Login/Register page
+Homepage with a list of available events with an option to search or filter.
+Event details page with the event information and an option to request to join the event.
+Accepted & requested events list page of the user
+Others if needed.
 
-### `npm start`
+Tech Requirements
+React.js in the front-end with functional components and hooks.
+Backend with Node.js and any database.
+Token-based authentication.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Evaluation Criteria 
+Thought Process about the design flow
+Code standards 
+Data architecture
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Note : Please don’t get into designs of the components, standard components available on the web are good. Also, please keep in mind the evaluation criterias and keep the app basic. Don’t get into unnecessary functionalities not mentioned in the description.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
