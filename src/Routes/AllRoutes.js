@@ -16,7 +16,7 @@ const AllRoutes = () => {
   return (
    <Routes>
         <Route path="/" element={<Home/>} />\
-        <Route path='/events' element={<PrivateRoute><Events /></PrivateRoute>} />
+        <Route path='/events' element={<PrivateRoute><Events/></PrivateRoute>} />
         <Route path='/myevents' element={<MyEvents/>} />
         <Route path='/create' element={<CreateEvent/>} />
         <Route path='/events/accepted' element={<Accepted/>} />

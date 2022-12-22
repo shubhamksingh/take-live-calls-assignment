@@ -28,8 +28,8 @@ const CreateEvent = () => {
 
 
   return (
-    <Box>
-        <FormControl isRequired>
+    <Box p='2rem'>
+        <FormControl isRequired w='50%' m='auto'>
             <Heading mb='2rem'><Center>Event Details</Center></Heading>
             <FormLabel>Event name</FormLabel>
             <Input type='text' name='name' onChange={handleChange}></Input>

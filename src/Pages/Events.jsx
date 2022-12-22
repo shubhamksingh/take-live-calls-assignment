@@ -7,15 +7,7 @@ function Events() {
   const {token} = useSelector(store => store.authStore);
   
   
-  const [events, setEvents] = useState([{
-    id: 1,
-    name: 'Event 1',
-    description: 'This is the first event',
-    }, {
-    id: 2,
-    name: 'Event 2',
-    description: 'This is the second event',
-  }]);
+  const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
