@@ -6,7 +6,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 function MyEvents() {
   const {token} = useSelector(store => store.authStore);
   const {user} = useSelector(store => store.authStore);
-  
+  const [filter , setFilter] = useState('all');
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -16,25 +16,26 @@ function MyEvents() {
     setLoading(true);
     fetch('https://take-live-backend-production.up.railway.app/events')
       .then((response) => response.json())
-      .then((data) => { data = data.filter(x=>x.creator==user._id);setEvents(data); console.log(data);setLoading(false); }) 
+      .then((data) => {if(filter!='all')data=data.filter(x=>x.category==filter); data = data.filter(x=>x.creator==user._id);setEvents(data); console.log(data);setLoading(false); }) 
       .catch((err) => {console.log(err); setLoading(false);});
-  }, []);
+  }, [filter]);
   if(!token){
     alert('Please login to continue');
     return <Navigate to='/login' />
   }
   return (
     <Box maxW='50%' m='auto' p='1rem' mt='2rem'>
-      <Select mb='1rem'>
+     
+      <Select mb='1rem' onChange={(e)=> setFilter(e.target.value)}>
         <option value='all'>All</option>
-        <option value='upcoming'>Upcoming</option>
-        <option value='past'>Past</option>
         <option value='badminton'>Badmintion</option>
         <option value='cricket'>Cricket</option>
         <option value='football'>Football</option>
+        <option value='tennis'>Tennis</option>
       </Select>
+    
       {loading && <p>{`Loading events...`}</p>}
-      {events.map((event) => (
+      {!loading && events.map((event) => (
         <Box key={event._id} display='flex' alignItems={'center'} justifyContent={'space-between'}>
           <Box mt='0.5rem' mb='0.5rem'>
           <h3>{event.name}</h3>

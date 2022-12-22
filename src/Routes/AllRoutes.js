@@ -17,11 +17,11 @@ const AllRoutes = () => {
    <Routes>
         <Route path="/" element={<Home/>} />\
         <Route path='/events' element={<PrivateRoute><Events/></PrivateRoute>} />
-        <Route path='/myevents' element={<MyEvents/>} />
-        <Route path='/create' element={<CreateEvent/>} />
-        <Route path='/events/accepted' element={<Accepted/>} />
-        <Route path='/events/pending' element={<Pending/>} />
-        <Route path='/event/:id' element={<EventDetail/>} />
+        <Route path='/myevents' element={<PrivateRoute><MyEvents/></PrivateRoute>} />
+        <Route path='/create' element={<PrivateRoute><CreateEvent/></PrivateRoute>} />
+        <Route path='/events/accepted' element={<PrivateRoute><Accepted/></PrivateRoute>} />
+        <Route path='/events/pending' element={<PrivateRoute><Pending/></PrivateRoute>} />
+        <Route path='/event/:id' element={<PrivateRoute><EventDetail/></PrivateRoute>} />
         <Route path='login' element={<Login />} />
         <Route path='signup' element={<Signup />} />
         <Route path='*' element={<NotFound />} />

@@ -1,11 +1,11 @@
-import { Box, Button, Center, FormControl, FormLabel, Heading, Input } from '@chakra-ui/react'
+import { Box, Button, Center, FormControl, FormLabel, Heading, Input, Select } from '@chakra-ui/react'
 import axios from 'axios';
 import React from 'react'
 import { useSelector } from 'react-redux';
 
 const CreateEvent = () => {
  
-     const [data, setData] = React.useState({});
+     const [data, setData] = React.useState({category: 'cricket'});
      const {user} = useSelector(store => store.authStore);
 
         const handleChange = (e) => {
@@ -19,7 +19,7 @@ const CreateEvent = () => {
             e.preventDefault();
             console.log(data);
             // Make a request to the backend to create an event using axios
-            axios.post('http://localhost:8080/events', {...data, creator: user._id}).then(res=>{
+            axios.post('https://take-live-backend-production.up.railway.app/events', {...data, creator: user._id, pending: [], attendees : []}).then(res=>{
                 console.log(res);
             }).catch(err=>{
                 console.log(err);
@@ -39,7 +39,14 @@ const CreateEvent = () => {
             <Input type='datetime-local' name='date' onChange={handleChange}></Input>
             {/* <FormLabel>Event time</FormLabel> */}
             <FormLabel>Event category</FormLabel>
-            <Input type='text' name='category' onChange={handleChange}></Input>
+            <Select  name='category' onChange={handleChange}>
+                <option value='cricket'>Cricket</option>
+                <option value='tennis'>Tennis</option>
+                <option value='football'>Football</option>
+                <option value='badminton'>Badminton</option>
+
+            </Select>
+            {/* <Input type='text' name='category' onChange={handleChange}></Input> */}
             <FormLabel>Member Limit</FormLabel>
             <Input type='number' name='limit' onChange={handleChange}></Input>
             <FormLabel>Other requirements</FormLabel>
