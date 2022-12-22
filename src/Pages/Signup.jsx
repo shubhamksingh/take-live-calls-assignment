@@ -6,7 +6,7 @@ import { signupUser } from '../Store/Auth/auth.actions';
 const Signup = () => {
      /* states to handle the form data */
      const dispatch = useDispatch();
-     const {error} = useSelector(store => store.authStore);
+    //  const {error} = useSelector(store => store.authStore);
      const [name, setName] = React.useState('')
      const [username, setUsername] = React.useState('')
     const [password, setPassword] = React.useState('')

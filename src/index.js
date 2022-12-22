@@ -4,7 +4,6 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import { StoreProvider } from "./Context/Context";
 import { store } from "./Store/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -12,11 +11,8 @@ root.render(
   <React.StrictMode>
     <ChakraProvider>
       <BrowserRouter>
-        <Provider store={store}>
-          <StoreProvider>
+        <Provider store={store}>   
             <App />
-          </StoreProvider>
-       
         </Provider>
       </BrowserRouter>
     </ChakraProvider>

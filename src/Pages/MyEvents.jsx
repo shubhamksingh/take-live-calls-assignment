@@ -4,13 +4,14 @@ import { useSelector } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 function MyEvents() {
-  const {token} = useSelector(store => store.authStore);
+ 
   const {user} = useSelector(store => store.authStore);
   const [filter , setFilter] = useState('all');
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
+    
     // Make a request to the backend to get the list of events
     
     setLoading(true);
@@ -19,10 +20,7 @@ function MyEvents() {
       .then((data) => {if(filter!='all')data=data.filter(x=>x.category==filter); data = data.filter(x=>x.creator==user._id);setEvents(data); console.log(data);setLoading(false); }) 
       .catch((err) => {console.log(err); setLoading(false);});
   }, [filter]);
-  if(!token){
-    alert('Please login to continue');
-    return <Navigate to='/login' />
-  }
+
   return (
     <Box maxW='50%' m='auto' p='1rem' mt='2rem'>
      

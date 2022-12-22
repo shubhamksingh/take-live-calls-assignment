@@ -4,15 +4,15 @@ import { useSelector } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 function Accepted() {
-  // const {token} = useSelector(store => store.authStore);
+ 
   const {user} = useSelector(store => store.authStore);
   const [filter, setFilter]  = useState('all');
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
+
     // Make a request to the backend to get the list of events
-    
     setLoading(true);
     fetch('https://take-live-backend-production.up.railway.app/events')
       .then((response) => response.json())
@@ -21,10 +21,6 @@ function Accepted() {
   }, [filter]);
 
 
-  // if(!token){
-  //   alert('Please login to continue');
-  //   return <Navigate to='/login' />
-  // }
 
 
   return (
@@ -43,7 +39,7 @@ function Accepted() {
           <h3>{event.name}</h3>
           {/* <p>{event.description}</p> */}
           <Tag  size='sm' variant='subtle' colorScheme='cyan'>
-             {/* <TagLeftIcon boxSize='12px' as={'+'}/> */}
+           
               <TagLabel>{event.category}</TagLabel>
          </Tag>
          </Box>

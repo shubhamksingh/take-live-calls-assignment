@@ -1,3 +1,5 @@
+// This is the reducer for the auth state
+
 import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCESS, LOGOUT_ERROR, LOGOUT_LOADING, LOGOUT_SUCCESS, SIGN_UP_ERROR, SIGN_UP_LOADING, SIGN_UP_SUCCESS } from "./auth.types";
 
 

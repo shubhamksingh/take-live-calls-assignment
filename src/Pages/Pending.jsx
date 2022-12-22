@@ -1,10 +1,10 @@
 import { Box, Button, Select, Tag, TagLabel, TagLeftIcon } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Pending() {
-  const {token} = useSelector(store => store.authStore);
+
   const {user} = useSelector(store => store.authStore);
   const [filter , setFilter] = useState('all');
   const [events, setEvents] = useState([]);
@@ -19,10 +19,9 @@ function Pending() {
       .then((data) => {if(filter!='all')data=data.filter(x=>x.category==filter); data = data.filter(x=>x.pending&& x.pending.includes(user._id));setEvents(data); console.log(data);setLoading(false); }) 
       .catch((err) => {console.log(err); setLoading(false);});
   }, [filter]);
-  if(!token){
-    alert('Please login to continue');
-    return <Navigate to='/login' />
-  }
+
+
+
   return (
     <Box maxW='50%' m='auto' p='1rem' mt='2rem'>
       <Select mb='1rem' onChange={(e)=> setFilter(e.target.value)}>
