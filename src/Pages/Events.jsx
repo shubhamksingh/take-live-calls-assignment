@@ -6,6 +6,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 function Events() {
   const {token} = useSelector(store => store.authStore);
   
+  
   const [events, setEvents] = useState([{
     id: 1,
     name: 'Event 1',
@@ -21,7 +22,7 @@ function Events() {
     // Make a request to the backend to get the list of events
     
     setLoading(true);
-    fetch('http://localhost:8080/events')
+    fetch('https://take-live-backend-production.up.railway.app/events')
       .then((response) => response.json())
       .then((data) => {setEvents(data); setLoading(false);}) 
       .catch((err) => {console.log(err); setLoading(false);});
@@ -45,13 +46,13 @@ function Events() {
         <Box key={event._id} display='flex' alignItems={'center'} justifyContent={'space-between'}>
           <Box mt='0.5rem' mb='0.5rem'>
           <h3>{event.name}</h3>
-          <p>{event.description}</p>
+          {/* <p>{event.description}</p> */}
           <Tag  size='sm' variant='subtle' colorScheme='cyan'>
-             <TagLeftIcon boxSize='12px' as={'+'}/>
-              <TagLabel>Cyan</TagLabel>
+             {/* <TagLeftIcon boxSize='12px' as={'+'}/> */}
+              <TagLabel>{event.category}</TagLabel>
          </Tag>
          </Box>
-          <Button colorScheme={'green'}  onClick={() => navigate('/event/event.id')/* navigate to event details page */ }>View details</Button>
+          <Button colorScheme={'green'}  onClick={() => navigate(`/event/${event._id}`)/* navigate to event details page */ }>View details</Button>
         </Box>
       ))}
     </Box>
