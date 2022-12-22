@@ -4,11 +4,10 @@ import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCESS, LOGOUT_ERROR, LOGOUT_LOADING
 const initialState = {
     loading: false,
     user: null,
+    token: null,
     error: null,
     };
     
-
-
 export const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case SIGN_UP_LOADING:
@@ -20,7 +19,8 @@ export const authReducer = (state = initialState, action) => {
         return {
             ...state,
             loading: false,
-            user: action.payload,
+            error : false,
+            // user: action.payload,
         };
         case SIGN_UP_ERROR:
         return {
@@ -28,16 +28,22 @@ export const authReducer = (state = initialState, action) => {
             loading: false,
             error: action.payload,
         };
+
+
+
         case LOGIN_LOADING:
         return {
             ...state,
             loading: true,
+            error : false,
         };
         case LOGIN_SUCCESS:
         return {
             ...state,
             loading: false,
-            user: action.payload,
+            error : false,
+            user: action.payload.user,
+            token: action.payload.accessToken,
         };
         case LOGIN_ERROR:
         return {
@@ -45,6 +51,10 @@ export const authReducer = (state = initialState, action) => {
             loading: false,
             error: action.payload,
         };
+
+
+
+
         case LOGOUT_LOADING:
         return {
             ...state,

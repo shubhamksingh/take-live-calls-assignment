@@ -7,6 +7,7 @@ const Navbar = () => {
     <Box p='1rem'>
         <Flex justifyContent={'center'} gap='1rem'>
             <Link to='/'><Button colorScheme={'teal'}>Home</Button></Link>
+            <Link to='/events'><Button colorScheme={'teal'}>Events</Button></Link>
             <Link to='/myevents'><Button colorScheme={'teal'}>My Events</Button></Link>
             <Link to='/create'><Button colorScheme={'teal'}>Create Event</Button></Link>
             <Link to='/events/accepted'><Button colorScheme={'teal'}>Accepted</Button></Link>

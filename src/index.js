@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import { StoreProvider } from "./Context/Context";
 import { store } from "./Store/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -12,7 +13,10 @@ root.render(
     <ChakraProvider>
       <BrowserRouter>
         <Provider store={store}>
-        <App />
+          <StoreProvider>
+            <App />
+          </StoreProvider>
+       
         </Provider>
       </BrowserRouter>
     </ChakraProvider>

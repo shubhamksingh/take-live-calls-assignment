@@ -8,33 +8,32 @@ import {
   Input,
 } from "@chakra-ui/react";
 import React from "react";
-import { postLogin } from "../Utils/loginSubmit";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate, useNavigate } from "react-router-dom";
+import { loginUser } from "../Store/Auth/auth.actions";
+// import { postLogin } from "../Utils/loginSubmit";
 
 const Login = () => {
   /* states to handle the form data */
+  const dispatch = useDispatch();
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const [error, setError] = React.useState("");
-  const [loading, setLoading] = React.useState(false);
+  const {user, loading , error, token} = useSelector(store => store.authStore);
+  const navigate = useNavigate();
 
   /* function to handle the form submission */
   const handleSubmit = async e => {
     e.preventDefault();
-    setLoading(true);
-    setError("");
-    try {
-      const response = await postLogin({ username, password });
-      const data = await response.json();
-      if (data.error) {
-        setError(data.error);
-        setLoading(false);
-      } else {
-        localStorage.setItem("token", data.token);
-        setLoading(false);
-      }
-    } catch (err) {
-      setError(err.message);
-    }
+
+     dispatch(loginUser({ username, password })).then(res => {
+         console.log(user);
+         console.log(token);
+         navigate('/');
+
+        }).catch(err => {
+          console.log(err);
+        });
+   
   };
 
   return (
